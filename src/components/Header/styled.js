@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
     height: 60px;
-    background-color: #791E94;
+    background-image: linear-gradient(to right, #f00, #00f);
     color: white;
+
 
     .container {
         padding: 5px 20px;
@@ -23,7 +24,14 @@ export const HeaderContainer = styled.div`
             }
                 li {
                     list-style: none;
-                    margin-left: 20px;                
+                    margin-left: 20px;        
+                    a {
+                        color: white;
+                        text-decoration: none;   
+
+                        &:hover {
+                            color: #F5BB00;
+                    }     
                 }
             }
         

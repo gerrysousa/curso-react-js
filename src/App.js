@@ -1,16 +1,20 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './Routes';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 
 function App() {
   return (
-    <div >
+    <BrowserRouter >
       <Header />
-      <h1> Hello World</h1>
-      <p> Message test</p>
+
+      <Routes />
+
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 
