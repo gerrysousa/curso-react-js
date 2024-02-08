@@ -19,6 +19,9 @@ export const HeaderContainer = styled.div`
         }
     
         nav{
+            display: flex;
+
+
             ul {
                 display: flex;
             }
@@ -32,6 +35,29 @@ export const HeaderContainer = styled.div`
                         &:hover {
                             color: #F5BB00;
                     }     
+                }
+            }
+
+            .avatar {
+                display: flex;
+                align-items: center;
+                img {
+                    width: 35px;                    
+                    border-radius: 20px;
+                    margin-left: 20px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+                label {
+                    font-size: 14px;
+                    cursor: pointer;
+                    color: #ccc;
+                }
+
+                @media (max-width: 600px) {
+                    label {
+                        display: none;
+                    }
                 }
             }
         

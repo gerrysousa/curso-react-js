@@ -10,15 +10,24 @@ import './App.css';
 function App() {
   const [user, setUser] = useState(null);
 
+  const handleGoogleLogin = async (infoUser) => {
+    let newUser = {
+      id: infoUser.uid,
+      name: infoUser.displayName,
+      avatar: infoUser.photoURL
+    }
+    setUser(newUser);
+  }
+
   if (user === null) {
     return (
-      <Login />
+      <Login onReceiveGoogle={handleGoogleLogin} />
     );
   }
 
   return (
     <BrowserRouter >
-      <Header />
+      <Header user={user} />
 
       <Routes />
 

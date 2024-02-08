@@ -3,10 +3,23 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { LoginContainer } from './styled';
 import { BtnDefaultIcons, BtnDefault } from '../../components/styled';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Api from '../../Api';
+
+const LoginPage = ({ onReceiveGoogle }) => {
+  const actionGoogleLogin = async () => {
+    let loginResult = await Api.googleLogin();
+
+    if (loginResult) {
+      onReceiveGoogle(loginResult.user);
+    }
+    else {
+      alert('Erro ao logar');
+    }
+  }
 
 
-const LoginPage = () => {
   return (
     <LoginContainer>
       <h1>Faça login em sua conta</h1>
@@ -15,8 +28,8 @@ const LoginPage = () => {
         <div className='center'>Entrar com Facebook</div>
       </BtnDefaultIcons>
 
-      <BtnDefaultIcons>
-        <FacebookIcon />
+      <BtnDefaultIcons onClick={actionGoogleLogin}>
+        <GoogleIcon />
         <div className='center'>Entrar com Google</div>
       </BtnDefaultIcons>
 
@@ -71,12 +84,12 @@ const RegisterPage = () => {
   );
 }
 
-const Page = () => {
+const Page = ({ onReceiveGoogle }) => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='*' element={<LoginPage />} />
+        <Route path='*' element={<LoginPage onReceiveGoogle={onReceiveGoogle} />} />
       </Routes>
     </BrowserRouter>
   );

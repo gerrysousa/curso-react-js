@@ -9,3 +9,5 @@ npm install styled-components --save
 npm install react-router-dom --save
 
 npm install @mui/icons-material @mui/material @emotion/styled @emotion/react --save
+
+npm install firebase --save
